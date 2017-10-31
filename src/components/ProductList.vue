@@ -14,8 +14,8 @@
           <td>￥{{item.price}}</td>
           <td>
             <input type="button" value="-">
-            <input style="width:40px;text-align:center" type="text" :value="item.num">
-            <input type="button" value="+">
+            <input type="button" @click="addToCart(item.id)" value="+">
+            <span>库存：{{item.stock}}</span>
           </td>
         </tr>
       </tbody>
@@ -23,7 +23,7 @@
   </div>
 </template>
 <script type="text/javascript">
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   data() {
     return {
@@ -33,6 +33,15 @@ export default {
   computed: {
     ...mapState([
         'productList'
+      ])
+  },
+  created () {
+    this.getProducts()
+  },
+  methods: {
+    ...mapActions([
+        'getProducts',
+        'addToCart'
       ])
   }
 }
