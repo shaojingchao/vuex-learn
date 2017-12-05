@@ -6,7 +6,7 @@
 
 <script>
 import Hello from './components/Hello'
-import mutations from 'mutations-types.js'
+import mutations from './mutations-types.js'
 
 export default {
   name: 'app',
@@ -15,7 +15,7 @@ export default {
   },
   mounted () {
     console.log(mutations)
-    console.log('is dsadasdasd')
+    console.log('is mounted')
   }
 }
 </script>
